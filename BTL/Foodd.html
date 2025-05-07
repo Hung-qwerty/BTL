@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nha Hang</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 10px;
+    padding: 0 20px;
+}
+header {
+    background-color: rgb(122, 101, 92);
+    color: white;
+    padding: 20px 0;
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav li {
+    margin-left: 20px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+.search-box {
+    display: flex;
+}
+.search-box input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+.search-box button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.book-now {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.hero {
+    background-image: url('https://www.tinbuilding.com/wp-content/uploads/2024/09/download-6-scaled-920x518.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.hero-content {
+    max-width: 500px;
+    text-align: left;
+    position: absolute;
+    background-color: rgba(28, 28, 28, 0.6);
+    border-radius: 10px;
+}
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+.hero-button {
+    font-size: 1.2em;
+    padding: 15px 30px;
+}
+.search-options {
+    background-color: #eee;
+    padding: 30px 0;
+    text-align: center;
+}
+.search-options h2 {
+    margin-bottom: 20px;
+}
+.search-options .options button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-options .options button.active {
+    background-color: #f0ad4e;
+    color: white;
+}
+.services {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 30px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.services .service-item img {
+    width: 399px;
+    height: 310px;
+    object-fit: cover;
+}
+
+.service-item h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1.5em;
+}
+.service-item p {
+    padding: 0 15px 15px;
+    margin: 0;
+    color: #777;
+}
+.learn-more {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    font-weight: bold;
+}
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.contact-info {
+    flex: 1 1 300px;
+}
+.contact-info h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.contact-info p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.subscribe-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+}
+.subscribe-form button {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links .column {
+    flex: 1 1 150px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    margin-top: 30px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a>PENALTY HOTEL CULINARY SERVICE</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li><a href="https://truongminh3010.github.io/btl/">THUÊ PHÒNG</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button type="submit" onclick="nuke()">Tìm</button>
+            </div>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>HANOI RESTAURANT</h1>
+                <p>Nhà hàng mang đến không gian ấm cúng, thực đơn phong phú cùng hương vị tinh tế, kết hợp giữa ẩm thực truyền thống và hiện đại. 
+                    Chúng tôi cam kết phục vụ bằng cả chất lượng món ăn lẫn sự chuyên nghiệp, tận tâm – tạo nên trải nghiệm ẩm thực đáng nhớ cho 
+                    mỗi thực khách.</p>
+            </div>
+        </div>
+    </header>
+    <section class="services">
+        <div class="container">
+            <h2>Dịch vụ của chúng tôi</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <img src="https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/809b494f6cb84b33b90cb8b3d4c3ec98.jpeg?width=1000" alt="bún">
+                    <h3>Phở Khôi Hói</h3>
+                    <p> 50 Hang Vai Street, Hang Bo Ward, Hoan Kiem District, Hanoi, 11014, Vietnam</p>
+                    <a href="https://maps.app.goo.gl/yfsmb1d7675n287QA?g_st=com.google.maps.preview.copy"><button class="learn-more">ĐẾN QUÁN</button></a>
+                </div>
+                <div class="service-item">
+                    <img src="https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/c3985b3e09924519a23c0502bbc6c740.jpeg?width=1000" alt="bún thang">
+                    <h3>Bánh cuốn bà xuân</h3>
+                    <p>16 Hoe Nhai Street, Nguyen Trung Truc Ward, Ba Dinh District, Hanoi, 11115, Vietnam</p>
+                    <a href="https://www.google.com/maps?q=B%C3%A1nh+cu%E1%BB%91n+B%C3%A0+Xu%C3%A2n,+D%E1%BB%91c+P.+Ho%C3%A8+Nhai,+Nguy%E1%BB%85n+Trung+Tr%E1%BB%B1c,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i&ftid=0x3135abb9e407b5c5:0x25aeb4029c094866&entry=gps&lucs=,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjE2LjEuNzQ3NTI2NjMwMBgAINeCAypjLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJWTg%3D%3D&skid=581cf458-f90c-415f-9e8c-5bca70ae1f41&g_st=com.google.maps.preview.copy"><button class="learn-more">ĐẾN QUÁN</button></a>
+                </div>
+                <div class="service-item">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/01/c5/a3/pork-in-caramel-sauce.jpg?w=900&h=500&s=1" alt="Limousine">
+                    <h3>Maison 1929</h3>
+                    <p>2 Cua Dong Street, Cua Dong Ward, Hoan Kiem District, Hanoi, 11016, Vietnam</p>
+                    <a href="https://www.google.com/maps?q=Maison+1929+Vietnamese+Restaurant,+2+P.+C%E1%BB%ADa+%C4%90%C3%B4ng,+H%C3%A0ng+B%E1%BB%93,+Ho%C3%A0n+Ki%E1%BA%BFm,+H%C3%A0+N%E1%BB%99i+100000&ftid=0x3135ab1d6e63958d:0xbadf7272e1661b39&entry=gps&lucs=,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjE2LjEuNzQ3NTI2NjMwMBgAINeCAypjLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJWTg%3D%3D&skid=a7b3bcdd-22cd-4980-be55-0dcef121b769&g_st=com.google.maps.preview.copy"><button class="learn-more">ĐẾN QUÁN</button></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="container">
+            <h2>CÁC DỊCH VỤ LIÊN QUAN</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <img src="https://mia.vn/media/uploads/blog-du-lich/top-10-quan-banh-cuon-thanh-tri-ha-noi-khong-thu-hoi-phi-01-1639390488.jpg" alt="bún">
+                    <h3>BÁNH CUỐN THANH TRÌ</h3>
+                    <p> 57A, Hàng Bồ, Hà Nội</p>
+                    <a href="site ăn uống.html"><button class="learn-more">XEM CÔNG THỨC</button></a>
+                </div>
+                <div class="service-item">
+                    <img src="https://cdn3.ivivu.com/2022/08/bun-thang-4x3.jpg" alt="bún thang">
+                    <h3>BÚN THANG</h3>
+                    <p>29 Hàng Hành, Quận Hoàn Kiếm, Hà Nội</p>
+                    <a href="site ăn uống.html"><button class="learn-more">XEM CÔNG THỨC</button></a>
+                </div>
+                <div class="service-item">
+                    <img src="https://mia.vn/media/uploads/blog-du-lich/top-19-quan-pho-ha-noi-ngon-nuc-tieng-an-la-ghien-phan-1-06-1639125006.jpg" alt="Limousine">
+                    <h3>PHỞ</h3>
+                    <p>49 Bát Đàn, quận Hoàn Kiếm</p>
+                    <a href="site ăn uống.html"><button class="learn-more">XEM CÔNG THỨC</button></a>
+                </div>
+                <div class="service-item">
+                    <img src="https://statics.vinpearl.com/banh-com-ha-noi-4_1675949838.jpg" alt="Limousine">
+                    <h3>BÁNH CỐM</h3>
+                    <p>Số 60 Hàng Than, Q. Ba Đình, Hà Nội</p>
+                    <a href="site ăn uống.html"><button class="learn-more">XEM CÔNG THỨC</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="contact-info">
+                <h3>LIÊN HỆ CHĂM SÓC KHÁCH HÀNG</h3>
+                <p>Liên hệ với chúng tôi để được tư vấn và hỗ trợ tốt nhất. Đội ngũ nhân viên tận tâm luôn sẵn sàng phục vụ quý khách.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Nhập email của bạn">
+                    <button type="submit" onclick="nuke()">Gửi</button>
+                </form>
+            </div>
+            <div class="footer-links">
+                <div class="column">
+                    <ul>
+                        <li><a href="https://abcs321.github.io/web-BTL/">Home page</a></li>
+                        <li><a href="https://truongminh3010.github.io/btl/">Room & Suites</a></li>
+                    </ul>
+                </div>
+                <div class="column" onclick="nuke()">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Restaurant & Bar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 LADY HUNTER HOTEL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function nuke() {
+          alert("BẠN ĐANG Ở TRANG ĐƯỢC CLICK");
+        }function nuke 2() {
+          alert("KO CÓ TÍNH NĂNG");
+        }
+        </script>
+</body>
+</html>
