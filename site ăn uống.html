@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Món Ngon Hà Nội</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #330011;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .button {
+      background-color: #8c5c2c;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hero {
+      width: 100%;
+      background: url('https://framerusercontent.com/images/CvspJIRJjYoUPgJlZuvqZMiYuc.png') no-repeat center center/cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-text {
+      position: absolute;
+      bottom: 250px;
+      left: 50px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    .mon-ua-thich {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+    .mon-ua-thich .big {
+      flex: 2;
+    }
+    .mon-ua-thich .big img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .mon-ua-thich .small {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mon-ua-thich .small .item {
+      display: flex;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .mon-ua-thich .small .item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+    .mon-ua-thich .small .item img {
+      width: 120px;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mon-ua-thich .small .item .info {
+      padding: 10px;
+    }
+    .tin-an-uong, .lien-he {
+      padding: 40px 20px;
+    }
+    .tin-an-uong h2, .lien-he h2 {
+      margin-bottom: 20px;
+    }
+    .tin-an-uong .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .tin-an-uong .card {
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      width: calc(33% - 20px);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tin-an-uong .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+    .tin-an-uong .card img {
+      width: 100%;
+    }
+    .tin-an-uong .card .desc {
+      padding: 10px;
+    }
+    .lien-he {
+      display: flex;
+      justify-content: space-between;
+      background: #1e2a31;
+    }
+    .lien-he .info, .lien-he .links {
+      flex: 1;
+    }
+    .lien-he input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .lien-he .links {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 40px;
+    }
+    .lien-he .links ul {
+      list-style: none;
+      padding: 0;
+    }
+    .lien-he .links li {
+      margin-bottom: 10px;
+    }
+    .tin-an-uong-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .tin-an-uong-grid a.card {
+      background-color: #222;
+      color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .tin-an-uong-grid a.card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+    .tin-an-uong-grid .card img {
+      width: 30%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .tin-an-uong-grid .card div {
+      padding: 50px;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      nav a {
+        margin: 5px 5px;
+      }
+      .hero {
+        height: 400px;
+        background-position: center;
+      }
+      .hero-text {
+        bottom: 100px;
+        left: 20px;
+        padding: 15px;
+      }
+      .hero-text h1 {
+        font-size: 32px;
+      }
+      .mon-ua-thich {
+        flex-direction: column;
+      }
+      .mon-ua-thich .small {
+        flex-direction: column;
+      }
+      .mon-ua-thich .small .item {
+        flex-direction: column;
+      }
+      .mon-ua-thich .small .item img {
+        width: 100%;
+        height: auto;
+      }
+      .tin-an-uong .cards {
+        flex-direction: column;
+      }
+      .tin-an-uong .card {
+        width: 100%;
+      }
+      .tin-an-uong-grid {
+        grid-template-columns: 1fr;
+      }
+      .tin-an-uong-grid .card {
+        flex-direction: column;
+      }
+      .tin-an-uong-grid .card img {
+        width: 100%;
+        height: auto;
+      }
+      .tin-an-uong-grid .card div {
+        padding: 20px;
+      }
+      .lien-he {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .lien-he .links {
+        flex-direction: column;
+        padding-left: 0;
+      }
+      .lien-he .links ul {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="main menu.html">Home</a>
+      <a href="index.html">Room & Suites</a>
+      <a href="Foodd.html">Restaurant & Bar</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Món ngon nổi bật</h1>
+      <p>Từ những gánh hàng rong đến nhà hàng sang trọng, ẩm thực Hà Nội mang trong mình linh hồn của phố cổ và sự tinh tế của người Tràng An.</p>
+    </div>
+  </div>
+
+  <div class="tin-an-uong-grid">
+    <a href="https://hung-qwerty.github.io/nauan/banhcuonThanhTri.html" target="_blank" class="card">
+      <img src="https://framerusercontent.com/images/TI2B49jAYjjw6AOCmRCsZ4wEHyU.png" alt="Bánh cuốn" />
+      <div>
+        <p>Ẩm thực</p>
+        <h3>Bánh cuốn</h3>
+      </div>
+    </a>
+    <a href="https://hung-qwerty.github.io/nauan/bunthang.html" target="_blank" class="card">
+      <img src="https://framerusercontent.com/images/pceRdy6OVfbZkKnKOKBTXcjRw.png" alt="Bún thang Hà Nội" />
+      <div>
+        <p>Ẩm thực</p>
+        <h3>Bún thang Hà Nội</h3>
+      </div>
+    </a>
+    <a href="https://hung-qwerty.github.io/nauan/pho.html" target="_blank" class="card">
+      <img src="https://framerusercontent.com/images/6fp5HdG3BKAhCWYCr2aR2v6Q6E.png" alt="Phở bò Hà Nội" />
+      <div>
+        <p>Ẩm thực</p>
+        <h3>Phở bò Hà Nội</h3>
+      </div>
+    </a>
+    <a href="https://hung-qwerty.github.io/nauan/banhcom.html" target="_blank" class="card">
+      <img src="https://framerusercontent.com/images/uCqplRPpdg10nrFZgBvYdV8lO8.png" alt="Bánh cốm" />
+      <div>
+        <p>Ẩm thực</p>
+        <h3>Bánh cốm</h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="tin-an-uong">
+    <h2>Tin ăn uống</h2>
+    <div class="cards">
+      <a href="https://www.xanhsm.com/news/pho-ngon-cau-giay" target="_blank" class="card">
+        <img src="https://framerusercontent.com/images/5iZrLgylGshz2qqXL5mpqrxQA.png" alt="Phở gà">
+        <div class="desc">
+          <small>Ẩm thực</small>
+          <h4>15 quán phở ngon Cầu Giấy đậm đà hương vị truyền thống</h4>
+          <p>2 Hours | xanhsm.com</p>
+        </div>
+      </a>
+      <a href="https://mia.vn/cam-nang-du-lich/top-10-quan-banh-cuon-thanh-tri-ha-noi-nhat-dinh-phai-ghe-2650" target="_blank" class="card">
+        <img src="https://framerusercontent.com/images/QSjNrRIhZ9ynOTAb8hPIlIF06E.png" alt="Bánh cuốn top 10">
+        <div class="desc">
+          <small>Ẩm thực</small>
+          <h4>Top 10 quán bánh cuốn Thanh Trì Hà Nội nhất định phải ghé</h4>
+          <p>2 Hours | mia.vn</p>
+        </div>
+      </a>
+      <a href="https://justfly.vn/discovery/vietnam/hanoi/quan-bun-thang" target="_blank" class="card">
+        <img src="https://framerusercontent.com/images/VjXo2a2mkS49douK0JgOl3xYC3k.png" alt="Bún thang top 10">
+        <div class="desc">
+          <small>Ẩm thực</small>
+          <h4>Top 10 quán bún thang ngon, nổi tiếng nhất Hà Nội</h4>
+          <p>2 Hours | justfly.vn</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="lien-he">
+    <div class="info">
+      <h2>LIÊN HỆ CHĂM SÓC KHÁCH HÀNG</h2>
+      <p>Cảm thấy dịch vụ của chúng tôi không tốt, xin đừng vội đánh giá 1 sao. Hãy liên hệ và báo cho chúng tôi. Cảm ơn quý khách</p>
+      <input type="email" placeholder="Input your email here" />
+    </div>
+    <div class="links">
+      <ul>
+        <li>Home</li>
+        <li>Room & Suites</li>
+        <li>Packages</li>
+        <li>Voucher</li>
+        <li>Promo</li>
+      </ul>
+      <ul>
+        <li>About Us</li>
+        <li>Restaurant & Bar</li>
+        <li>Events</li>
+        <li>Gallery</li>
+      </ul>
+      <ul>
+        <li>Our Team</li>
+        <li>Blog</li>
+        <li>Contact Us</li>
+        <li>Careers</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

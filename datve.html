@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt phòng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+  <nav>
+    <div><strong>Logo</strong></div>
+    <ul>
+      <li><a href="#" >Home</a></li>
+      <li><a href="" class="active" >Room & Suites</a></li>
+      <li><a href="#">Restaurant & Bar</a></li>
+    </ul>
+    <button class="btn-booking">Booking Tour</button>
+  </nav>
+
+  
+</head>
+<body>
+  <div class="container">
+    <h1>XÁC NHẬN THÔNG TIN TOUR</h1>
+
+    <div class="card form-grid">
+      <input type="text" placeholder="Họ tên" />
+      <input type="email" placeholder="Email" />
+      <input type="text" placeholder="Số điện thoại" />
+      <input type="text" placeholder="Địa chỉ" />
+      <input type="text" placeholder="Số hộ chiếu (nếu có)" />
+    </div>
+
+    <div class="card tour-info">
+      <div class="image-container">
+        <img src="./du-lich-ha-noi.jpg" alt="Tour Hà Nội" />
+      </div>
+      <div class="tour-details">
+        <h2>Tour Hà Nội</h2>
+        <label>Ngày khởi hành:
+          <input type="date" id="startDate" />
+        </label>
+        <label>Số người:
+          <input type="number" id="numPeople" min="1" placeholder="Nhập số người" />
+        </label>
+        <div id="totalPrice" class="price" style="display: none;"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Dịch vụ bổ sung</h3>
+      <label><input type="checkbox" value="pickup" /> Đưa đón tận nhà - 150.000 VND</label>
+      <label><input type="checkbox" value="insurance" /> Bảo hiểm du lịch - 100.000 VND</label>
+      <label><input type="checkbox" value="guide" /> Hướng dẫn viên riêng - 300.000 VND</label>
+      <textarea placeholder="Yêu cầu đặc biệt"></textarea>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+      <label for="confirmCheck" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; white-space: nowrap;">
+        <input type="checkbox" id="confirmCheck" />
+        Tôi xác nhận thông tin tour là chính xác
+      </label>
+    </div>
+    
+    <button id="confirmBtn">XÁC NHẬN ĐẶT TOUR</button>
+  </div>
+
+  <script>
+    const pricePerPerson = 1750000;
+    const startDateInput = document.getElementById('startDate');
+    const numPeopleInput = document.getElementById('numPeople');
+    const totalPriceDiv = document.getElementById('totalPrice');
+
+    function updatePrice() {
+      const startDate = startDateInput.value;
+      const numPeople = parseInt(numPeopleInput.value);
+      if (startDate && numPeople > 0) {
+        const total = numPeople * pricePerPerson;
+        totalPriceDiv.textContent = "Tổng giá: " + total.toLocaleString("vi-VN") + " VND";
+        totalPriceDiv.style.display = "block";
+      } else {
+        totalPriceDiv.style.display = "none";
+      }
+    }
+
+    startDateInput.addEventListener('input', updatePrice);
+    numPeopleInput.addEventListener('input', updatePrice);
+
+    document.getElementById('confirmBtn').addEventListener('click', function () {
+  const inputs = document.querySelectorAll('.form-grid input');
+  const startDate = startDateInput.value;
+  const numPeople = numPeopleInput.value;
+  const confirmCheck = document.getElementById('confirmCheck');
+
+  let valid = true;
+  let missingFields = [];
+
+  inputs.forEach(input => {
+    if (input.value.trim() === "") {
+      valid = false;
+      missingFields.push(input.placeholder);
+    }
+  });
+
+  if (!startDate) {
+    valid = false;
+    missingFields.push("Ngày khởi hành");
+  }
+
+  if (!numPeople || parseInt(numPeople) <= 0) {
+    valid = false;
+    missingFields.push("Số người");
+  }
+
+  if (!confirmCheck.checked) {
+    valid = false;
+    missingFields.push("Xác nhận thông tin");
+  }
+
+  if (!valid) {
+    alert("Vui lòng điền đầy đủ thông tin: " + missingFields.join(", "));
+  } else {
+    alert("Thông tin tour đã được xác nhận thành công!");
+  }
+});
+
+    
+  </script>
+   <footer class="footer">
+    <div class="footer-newsletter">
+      <h3>LIÊN HỆ CHĂM SÓC KHÁCH HÀNG</h3>
+      <p>Cảm thấy dịch vụ của chúng tôi không tốt, xin đừng vội đánh giá 1 sao. Hãy liên hệ và báo cho chúng tôi. Cảm ơn quý khách !</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Nhập địa chỉ email của bạn" required>
+        <button type="submit">Đăng ký</button>
+      </form>
+    </div>
+  
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Về Chúng Tôi</h4>
+        <ul>
+          <li><a href="#">Câu chuyện của chúng tôi</a></li>
+          <li><a href="#">Đội ngũ</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Dịch Vụ</h4>
+        <ul>
+          <li><a href="#">Phòng & Suites</a></li>
+          <li><a href="#">Nhà hàng</a></li>
+          <li><a href="#">Spa & Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Hỗ Trợ</h4>
+        <ul>
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      © 2025 LADY HUNTER HOTEL. All rights reserved.
+    </div>
+  </footer>
+  
+</body>
+</html>
